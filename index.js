@@ -1,27 +1,34 @@
-const container = document.querySelector('#container');
+// Sets important constants and variables
 
-const row1 = document.createElement('div');
-const row2 = document.createElement('div');
-const row3 = document.createElement('div');
-const row4 = document.createElement('div');
+const container = document.getElementById("container");
+let rows = document.getElementsByClassName("gridRow");
+let cells = document.getElementsByClassName("cell");
 
-row1.classList.add('row');
-row1.setAttribute('id', 'row1')
+// Creates a default grid sized 16x16
+function defaultGrid() {
+    makeRows(16);
+    makeColumns(16);
+}
 
-row2.classList.add('row');
-row2.setAttribute('id', 'row2')
+// Takes (rows, columns) input and makes a grid
+function makeRows(rowNum) {
 
-row3.classList.add('row');
-row3.setAttribute('id', 'row3')
+    // Creates rows
+    for (r = 0; r < rowNum; r++) {
+        let row = document.createElement("div");
+        container.appendChild(row).className = "gridRow";
+    };
+};
 
-row4.classList.add('row');
-row4.setAttribute('id', 'row4')
+// Creates columns
+function makeColumns(cellNum) {
+    for (i = 0; i < rows.length; i++) {
+        for (j = 0; j < cellNum; j++) {
+            let newCell = document.createElement("div");
+            rows[j].appendChild(newCell).className = "cell";
+        };
 
-container.appendChild(row1);
-container.appendChild(row2);
-container.appendChild(row3);
-container.appendChild(row4);
+    };
+};
 
-const firstRow = document.querySelector('#row1');
-
-const cells = documnet.querySelector('.cells')
+defaultGrid();
