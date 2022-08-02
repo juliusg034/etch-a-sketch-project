@@ -21,3 +21,7 @@ container.appendChild(row1);
 container.appendChild(row2);
 container.appendChild(row3);
 container.appendChild(row4);
+
+const firstRow = document.querySelector('#row1');
+
+const cells = documnet.querySelector('.cells')
